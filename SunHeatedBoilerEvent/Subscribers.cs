@@ -8,9 +8,9 @@ namespace SunHeatedBoilerEvent
 {
     internal class Subscribers
     {
-        public void OnTemperatureChanged(object? sender, TemperatureChangedEventArgs ev)
+        public void OnTemperatureChanged(object? sender, TemperatureEventArgs ev)
         {
-            Console.WriteLine($" Current Temperature is: {ev.CurrentTemperature:F}°C at {ev.MeasurementTime} d");
+          
         }
     }
 }

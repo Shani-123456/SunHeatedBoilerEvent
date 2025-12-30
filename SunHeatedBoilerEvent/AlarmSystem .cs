@@ -8,9 +8,19 @@ namespace SunHeatedBoilerEvent
 {
     internal class AlarmSystem
     {
-        public void TargetReached(object? sender, EventArgs ev)
+        public void DisplayAlert(object sender, EventArgs Event)
         {
-            Console.WriteLine("ALARM] Target temperature degrees reached! Powering off....");
+            if (sender is WaterHeater heater)
+            {
+                Console.WriteLine("Target Temperature Reached! Alarm Activated!");
+                Console.WriteLine($"Current Tempertature in Fahrenheit: {heater.TemperatureInFahrenheit}");
+            }
+
+            if (sender is House h)
+            {
+
+            }
         }
     }
 }
+

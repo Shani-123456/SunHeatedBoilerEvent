@@ -4,10 +4,16 @@
     {
         static void Main(string[] args)
         {
-            WaterHeater myHeater = new WaterHeater();
-            MeasurementTime myDisplay = new MeasurementTime();
-            AlarmSystem myAlarm = new AlarmSystem();
+            WaterHeater waterHeater = new WaterHeater();
+            DisplayUnits displayUnits = new DisplayUnits();
 
+            waterHeater.OnTemperatureChange += displayUnits.DisplayTemperature;
+            waterHeater.StartBoiler(45);
+            House h = new House();
+            AlarmSystem alarmSystem = new AlarmSystem();
+            waterHeater.TragetReached += alarmSystem.DisplayAlert;
+            h.OnDoorOpened += alarmSystem.DisplayAlert;
+            h.OpenDoor();
         }
     }
 }
